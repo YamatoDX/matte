@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { createTheme, ThemeProvider, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import Button from "@material-ui/core/Button";
-import Switch from "@material-ui/core/Switch";
 import {
+  createTheme,
+  ThemeProvider,
+  Container,
   FormControl,
   FormLabel,
   FormControlLabel,
@@ -12,6 +12,8 @@ import {
   Checkbox,
   Typography,
   TextField,
+  Button,
+  Switch as MaterialSwitch,
 } from "@material-ui/core";
 const useStyles = makeStyles({
   labelStyles: {
@@ -37,7 +39,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <Container>
-          <Switch
+          <MaterialSwitch
             checked={state.isDark}
             color="primary"
             onChange={() =>
@@ -47,7 +49,9 @@ export default function App() {
               })
             }
           />
-          <Typography>Click the above switch to change theme</Typography>
+          <Typography variant="h3" component="h3">
+            Click the above switch to change theme
+          </Typography>
           {/*  */}
           <FormControl variant="outlined">
             <FormLabel className={classes.labelStyles}>
@@ -66,7 +70,7 @@ export default function App() {
               helperText="Fill out with your current Name"
               variant="outlined"
             />
-            {/*  */}
+            {/* RadioGroup starts here */}
             <RadioGroup
               onChange={(e) =>
                 setState({ ...state, currentGender: e.target.value })
@@ -89,7 +93,7 @@ export default function App() {
                 label="others"
               />
             </RadioGroup>
-            {/*  */}
+            {/* RadioGroup ends here! */}
             <FormLabel>
               Select if you think you are much alike goku himself
             </FormLabel>
@@ -97,6 +101,12 @@ export default function App() {
               control={<Checkbox color="secondary" />}
               value={state.isGoku}
               label="Tick if you are goku"
+              onChange={() =>
+                setState({
+                  ...state,
+                  isGoku: !state.isGoku,
+                })
+              }
             />
             <Button
               variant="outlined"
