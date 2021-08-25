@@ -14,6 +14,8 @@ import {
   TextField,
   Button,
   Switch as MaterialSwitch,
+  Grid,
+  Paper,
 } from "@material-ui/core";
 const useStyles = makeStyles({
   labelStyles: {
@@ -39,6 +41,17 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <Container>
+          <Grid container>
+            <Grid item xs={12}>
+              <Paper>One</Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper>Two</Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper>Three</Paper>
+            </Grid>
+          </Grid>
           <MaterialSwitch
             checked={state.isDark}
             color="primary"
