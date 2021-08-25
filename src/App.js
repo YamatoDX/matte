@@ -43,7 +43,7 @@ export default function App() {
         <Container>
           <Grid container>
             <Grid item xs={12}>
-              <Paper>One</Paper>
+              <Paper variant="outlined">One</Paper>
             </Grid>
             <Grid item xs={12}>
               <Paper>Two</Paper>
